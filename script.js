@@ -2,9 +2,6 @@
 const tg = window.Telegram.WebApp;
 tg.expand();
 
-// Channel configuration
-const TELEGRAM_CHANNEL = '@ArdManagerOfficial';
-const CHANNEL_LINK = 'https://t.me/ArdManagerOfficial';
 
 // Initialize state
 let airdrops = [];
