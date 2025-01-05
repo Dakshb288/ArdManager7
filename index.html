@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARD Manager</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="intro-animation">
+        <div class="logo-animation">
+            <span class="logo-icon"></span>
+            <h1>ARD Manager</h1>
+        </div>
+    </div>
+
+    <div class="app-container">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon"></span>
+                    <h1>ARD Manager</h1>
+                </div>
+                <div class="theme-toggle">
+                    <button id="themeToggle" class="theme-btn">
+                        <span class="light-icon">☀️</span>
+                        <span class="dark-icon">🌙</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="card add-airdrop">
+                <h2>Add New Airdrop</h2>
+                <form id="airdropForm" class="airdrop-form">
+                    <div class="input-group">
+                        <input type="text" id="airdropName" placeholder="Airdrop Name" required>
+                        <div class="input-focus-effect"></div>
+                    </div>
+                    <div class="input-group">
+                        <input type="url" id="airdropLink" placeholder="Airdrop Link" required>
+                        <div class="input-focus-effect"></div>
+                    </div>
+                    <button type="submit" class="btn-primary">Add Airdrop</button>
+                </form>
+            </div>
+
+            <div class="card airdrop-list">
+                <div class="list-header">
+                    <h2>Your Airdrops</h2>
+                    <div class="list-actions">
+                        <div class="search-container">
+                            <input type="text" id="searchAirdrops" placeholder="Search airdrops...">
+                            <span class="search-icon">🔍</span>
+                        </div>
+                        <select id="sortDrops" class="sort-select">
+                            <option value="newest">Newest First</option>
+                            <option value="oldest">Oldest First</option>
+                        </select>
+                        <button id="viewModeToggle" class="btn-view-mode">
+                            <span class="grid-icon">📱</span>
+                            <span class="list-icon">📋</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <span class="stat-label">Total Airdrops</span>
+                        <span class="stat-value" id="totalAirdrops">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Added Today</span>
+                        <span class="stat-value" id="todayAirdrops">0</span>
+                    </div>
+                </div>
+                <div class="tags-container" id="tagsContainer">
+                    <!-- Tags will be added here -->
+                </div>
+                <div class="airdrops-container" id="airdropsContainer">
+                    <!-- Airdrops will be dynamically added here -->
+                </div>
+                <div class="pagination" id="pagination">
+                    <!-- Pagination will be added here -->
+                </div>
+                <div class="view-options">
+                    <button id="expandAll" class="btn-secondary">Show All Airdrops</button>
+                </div>
+            </div>
+        </main>
+
+        <div class="floating-action">
+            <button id="resetButton" class="btn-floating">
+                <span>🗑️</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal Template -->
+    <div class="modal" id="confirmModal">
+        <div class="modal-content">
+            <h3>Confirm Action</h3>
+            <p>Are you sure you want to delete this airdrop?</p>
+            <div class="modal-actions">
+                <button class="btn-secondary" id="cancelDelete">Cancel</button>
+                <button class="btn-danger" id="confirmDelete">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
