@@ -490,6 +490,11 @@ viewModeToggle.addEventListener('click', toggleViewMode);
 expandAllButton.addEventListener('click', showFullScreenView);
 fullScreenView.querySelector('.close-full-screen').addEventListener('click', hideFullScreenView);
 
+document.getElementById('closeChannelPrompt').addEventListener('click', () => {
+    const channelPrompt = document.getElementById('channelPrompt');
+    channelPrompt.style.display = 'none';
+});
+
 // Initialize app
 document.addEventListener('DOMContentLoaded', async () => {
     initializeTheme();
