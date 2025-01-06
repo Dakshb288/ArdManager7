@@ -126,6 +126,23 @@ body {
     font-weight: 600;
 }
 
+.close-channel-prompt {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-channel-prompt:hover {
+    color: var(--text-primary);
+}
+
+
 
 .header {
   text-align: center;
