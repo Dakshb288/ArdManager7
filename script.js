@@ -2,6 +2,11 @@
 const tg = window.Telegram.WebApp;
 tg.expand();
 
+const userId = tg.initDataUnsafe?.user?.id;
+if (!userId) {
+    alert("User ID not found! Ensure you are logged in to Telegram.");
+    throw new Error("User ID is required to save airdrop data.");
+}
 
 // Initialize state
 let airdrops = [];
@@ -61,18 +66,19 @@ function toggleTheme() {
 
 // Load airdrops from localStorage
 function loadAirdrops() {
-    const savedAirdrops = localStorage.getItem('airdrops');
-    if (savedAirdrops) {
-        airdrops = JSON.parse(savedAirdrops);
-        updateStats();
-        renderTags();
-        renderAirdrops();
-    }
+    const savedData = JSON.parse(localStorage.getItem('airdropStorage')) || {};
+    airdrops = savedData[userId] || [];
+    updateStats();
+    renderTags();
+    renderAirdrops();
 }
+
 
 // Save airdrops to localStorage
 function saveAirdrops() {
-    localStorage.setItem('airdrops', JSON.stringify(airdrops));
+    const savedData = JSON.parse(localStorage.getItem('airdropStorage')) || {};
+    savedData[userId] = airdrops;
+    localStorage.setItem('airdropStorage', JSON.stringify(savedData));
     updateStats();
 }
 
