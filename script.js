@@ -56,6 +56,12 @@ function initializeTheme() {
     const savedTheme = localStorage.getItem('theme') || 'dark';
     document.documentElement.setAttribute('data-theme', savedTheme);
 }
+function showChannelPrompt() {
+    const channelPrompt = document.getElementById('channelPrompt');
+    setTimeout(() => {
+        channelPrompt.classList.add('active');
+    }, 3500); // Show 1 second after the intro fades
+}
 
 function toggleTheme() {
     const currentTheme = document.documentElement.getAttribute('data-theme');
@@ -488,7 +494,7 @@ fullScreenView.querySelector('.close-full-screen').addEventListener('click', hid
 document.addEventListener('DOMContentLoaded', async () => {
     initializeTheme();
     initializeViewMode();
-    
+
     // Show intro animation
     const introAnimation = document.querySelector('.intro-animation');
     setTimeout(() => {
@@ -497,9 +503,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             introAnimation.style.display = 'none';
             // Check channel membership after intro
             checkChannelMembership();
+            // Show channel prompt animation
+            showChannelPrompt();
         }, 1000);
     }, 2000);
 
     loadAirdrops();
     tg.ready();
 });
+
