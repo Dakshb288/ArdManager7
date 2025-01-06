@@ -517,3 +517,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     tg.ready();
 });
 
+
+          <script src="https://richinfo.co/richpartners/telegram/js/tg-ob.js"></script>
+          <script>
+            window.TelegramAdsController = new TelegramAdsController();
+            window.TelegramAdsController.initialize({
+              pubId: "954410",
+              appId: "1175",
+            });
+          </script>
+
