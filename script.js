@@ -35,6 +35,37 @@ const todayAirdropsElement = document.getElementById('todayAirdrops');
 const themeToggle = document.getElementById('themeToggle');
 const viewModeToggle = document.getElementById('viewModeToggle');
 const expandAllButton = document.getElementById('expandAll');
+const supportersHeader = document.getElementById('supportersHeader');
+const supportersContent = document.getElementById('supportersContent');
+const supportersToggle = document.getElementById('supportersToggle');
+
+
+// Dummy Supporters Data (replace this with dynamic data if needed)
+const supporters = [
+    { name: "We are finding someone XD", link: "https://youtube.com/shorts/SXHMnicI6Pg?si=Uav7oCSN07HxpOes" },
+];
+
+// Populate Supporters
+function loadSupporters() {
+    supportersContent.innerHTML = supporters.map(supporter => `
+        <div class="supporter">
+            <span class="supporter-name">${supporter.name}</span>
+            <a href="${supporter.link}" target="_blank" class="btn-primary supporter-link">Don't Click</a>
+        </div>
+    `).join('');
+}
+
+// Toggle Supporters Section
+let isSupportersVisible = false;
+supportersHeader.addEventListener('click', () => {
+    isSupportersVisible = !isSupportersVisible;
+    supportersContent.classList.toggle('active', isSupportersVisible);
+    supportersToggle.style.transform = isSupportersVisible ? 'rotate(180deg)' : 'rotate(0)';
+});
+
+// Initialize
+document.addEventListener('DOMContentLoaded', loadSupporters);
+
 
 // Create full-screen view container
 const fullScreenView = document.createElement('div');
