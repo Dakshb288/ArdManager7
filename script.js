@@ -7,7 +7,7 @@ if (!userId) {
     alert("User ID not found! Ensure you are logged in to Telegram.");
     throw new Error("User ID is required to save airdrop data.");
 }
-const AdController = window.Adsgram.init({ blockId: "int-6870" });
+const AdController = window.Adsgram.init({ blockId: "int-6873" });
 // Initialize state
 let airdrops = [];
 let selectedAirdropId = null;
